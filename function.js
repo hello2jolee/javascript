@@ -147,3 +147,21 @@ const simpleMultiply = (a,b) => {
 (function hello() {
     console.log('IIFE')
 })()
+
+// QUIZ
+function calculate(command, a, b) {
+    if(command === 'add') {
+        return a + b
+    } else if(command === 'substract') {
+        return a - b
+    } else if(command === 'divide') {
+        return a / b
+    } else if(command === 'multiply') {
+        return a * b
+    } else if(command === 'remainder') {
+        return a % b
+    } else {
+        console.log('add, substract, divide, multiply, remainder 중에 입력해주세요')
+    }
+}
+console.log(calculate('remainder', 2, 3))
