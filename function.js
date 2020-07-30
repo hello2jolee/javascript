@@ -165,3 +165,23 @@ function calculate(command, a, b) {
     }
 }
 console.log(calculate('remainder', 2, 3))
+
+// QUIZ 권장 답안 
+// 정해진 데이터를 처리할 경우에는 IF문보다는 SWITCH문을 사용하는 것이 더 좋음
+function calculateAnswer(command, a, b) {
+    switch(command) {
+        case 'add':
+            return a + b
+        case 'substract':
+            return a - b
+        case 'divide':
+            return a / b
+        case 'multiply':
+            return a * b
+        case 'remainder':
+            return a % b
+        default:
+            throw Error('unknown command')
+    }
+}
+console.log(calculateAnswer('substract', 2, 3))
