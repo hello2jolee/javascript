@@ -63,3 +63,11 @@ console.log('3') // 동기
         )
     }, error => {console.log(error)}
 )
+
+async function asyncFunction() {
+    const users = await user.loginUser(id, password)
+    const getRoles = await user.getRoles(id)
+
+    return `${getRoles.name} + ${getRoles.role}`
+}
+asyncFunction().then(alert)
