@@ -19,3 +19,51 @@ a:hover,a:active,a:focus{text-decoration:underline}
 body {
     background-color: #050099;
 }
+.header {
+    padding-top: 20px;
+    text-align: center;
+}
+.header .home {
+    display: inline-block;
+    padding: 4px;
+    vertical-align: top;
+}
+.header .home:after {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: url('../img/logo.png') no-repeat;
+    background-size: 30px auto;
+    content: '';
+}
+.header .menulist {
+    padding-top: 10px;
+}
+.header .menulist .item {
+    display: inline-block;
+    padding: 0 4px;
+}
+.header .menulist .link {
+    display: block;
+}
+.header .menulist .link img {
+    vertical-align: top;
+}
+.clothes_section {
+    padding: 40px 23px;
+}
+.clothes_list .item {
+    padding: 10px;
+    border-radius: 3px;
+    line-height: 20px;
+    background-color: #fff;
+}
+.clothes_list .item > * {
+    vertical-align: top;
+}
+.clothes_list .item + .item {
+    margin-top: 5px;
+}
+.clothes_list .description {
+    display: inline-block;
+}
