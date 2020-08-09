@@ -1,52 +1,58 @@
 'use strict';
 
-class Stock {
-    constructor(color, clothType, gender, clothSize) {
-        this.color = color
-        this.clothType = clothType
-        this.gender = gender
-        this.clothSize = clothSize
-    }
-}
 const stocks = [
-    new Stock('pink', 'tee', 'female', 'large'),
-    new Stock('blue', 'pants', 'man', 'small'),
-    new Stock('yellow', 'pants', 'man', 'large'),
-    new Stock('yellow', 'skirt', 'man', 'large'),
-    new Stock('blue', 'skirt', 'female', 'small'),
-    new Stock('blue', 'tee', 'male', 'large'),
-    new Stock('yellow', 'tee', 'male', 'large'),
-    new Stock('pink', 'pants', 'female', 'small'),
-    new Stock('pink', 'tee', 'female', 'large'),
-    new Stock('blue', 'pants', 'male', 'small'),
-    new Stock('yellow', 'pants', 'male', 'large'),
-    new Stock('yellow', 'skirt', 'man', 'large'),
-    new Stock('blue', 'skirt', 'female', 'small'),
-    new Stock('blue', 'tee', 'male', 'large')
+    {color: 'pink', clothType: 'tee', gender: 'female', clothSize: 'large'},
+    {color: 'blue', clothType: 'pants', gender: 'man', clothSize: 'small'},
+    {color: 'yellow', clothType: 'pants', gender: 'man', clothSize: 'large'},
+    {color: 'yellow', clothType: 'skirt', gender: 'man', clothSize: 'large'},
+    {color: 'blue', clothType: 'skirt', gender: 'female', clothSize: 'small'},
+    {color: 'blue', clothType: 'tee', gender: 'male', clothSize: 'large'},
+    {color: 'yellow', clothType: 'tee', gender: 'male', clothSize: 'large'},
+    {color: 'pink', clothType: 'pants', gender: 'female', clothSize: 'small'},
+    {color: 'pink', clothType: 'tee', gender: 'female', clothSize: 'large'},
+    {color: 'blue', clothType: 'pants', gender: 'male', clothSize: 'small'},
+    {color: 'yellow', clothType: 'pants', gender: 'male', clothSize: 'large'},
+    {color: 'yellow', clothType: 'skirt', gender: 'man', clothSize: 'large'},
+    {color: 'blue', clothType: 'skirt', gender: 'female', clothSize: 'small'},
+    {color: 'blue', clothType: 'tee', gender: 'male', clothSize: 'large'}
 ]
 
-function selectedColor(selectColor) {
-    console.log(selectColor)
-    
-    const result = stocks
-        .map((stock, index) => `${stock.color}, ${index}`)
-        // .filter(color => color === selectColor)
-    console.log(result)
+const list = document.querySelector('#clothesList')
 
-    // console.log(result)
-    // const list = document.querySelector("#clothesList")
-    // if(color === 'pink') {
-    //     list.innerHTML += "<li class='item'><img src='img/pink_p.png' alt='pink pants' width='20' height='20'/><p>"+{}+"</p></li>"
-    // }
+function selectedColor(selectColor) {
+    let result = stocks.filter(stock => stock.color === selectColor)
+    
+    result.map(r => list.innerHTML += `<li class='item'><img src='img/${r.color}_${r.clothType}.png' alt='pink pants' width='20' height='20'/><p class='description'>${r.gender}, ${r.clothSize}</p></li>`)
+} 
+function selectedClothType(selectCloth) {
+    let result = stocks.filter(stock => stock.clothType === selectCloth)
+    result.map(r => list.innerHTML += `<li class='item'><img src='img/${r.color}_${r.clothType}.png' alt='pink pants' width='20' height='20'/><p class='description'>${r.gender}, ${r.clothSize}</p></li>`)
 }
 
-function selectedclothType(clothType) {
-    if(clothType !== null) {
-        const result = stocks.filter((stock) => stock.clothType)
-    } 
-    const list = document.querySelector("#clothesList")
-    if(clothType === 'tee') {
-        list.innerHTML += "<li class='item'><img src='img/pink_p.png' alt='pink pants' width='20' height='20'/><p>"+{}+"</p></li>"
+function resetPage() {
+    list.innerHTML = ''
+}
+
+window.onload = function() {
+    document.getElementById('reset').onclick = function() {
+        resetPage()
+    }
+    document.getElementById('tee_item').onclick = function() {
+        selectedClothType('tee')
+    }
+    document.getElementById('pants_item').onclick = function() {
+        selectedClothType('pants')
+    }
+    document.getElementById('skirt_item').onclick = function() {
+        selectedClothType('skirt')
+    }
+    document.getElementById('blue_item').onclick = function() {
+        selectedColor('blue')
+    }
+    document.getElementById('yellow_item').onclick = function() {
+        selectedColor('yellow')
+    }
+    document.getElementById('pink_item').onclick = function() {
+        selectedColor('pink')
     }
 }
-selectedColor('pink')
